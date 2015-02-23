@@ -6,17 +6,20 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
+import pypandoc
 
+def md_to_rst(infile):
+    return pypandoc.convert(infile, 'rst')
 
-readme = open('README.rst').read()
-history = open('HISTORY.rst').read().replace('.. :changelog:', '')
+readme = md_to_rst('README.md')
+history = md_to_rst('HISTORY.md')
 
 requirements = [
-    # TODO: put package requirements here
+        # TODO: Add any additional requirements for all templates
 ]
 
 test_requirements = [
-    # TODO: put package test requirements here
+    'pytest>=2.6.4'
 ]
 
 setup(
@@ -34,13 +37,10 @@ setup(
                  '{{ cookiecutter.repo_name }}'},
     include_package_data=True,
     install_requires=requirements,
-    license="BSD",
+    license="GPLv3",
     zip_safe=False,
     keywords='{{ cookiecutter.repo_name }}',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.3',

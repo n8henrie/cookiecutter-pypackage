@@ -11,8 +11,7 @@ Types of Contributions
 
 ### Report Bugs
 
-Report bugs at <https://github.com/>{{ cookiecutter.github\_username
-}}/{{ cookiecutter.repo\_name }}/issues.
+Report bugs at <https://github.com/>{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
 
 If you are reporting a bug, please include:
 
@@ -33,15 +32,14 @@ Look through the GitHub issues for features. Anything tagged with
 
 ### Write Documentation
 
-{{ cookiecutter.project\_name }} could always use more documentation,
-whether as part of the official {{ cookiecutter.project\_name }} docs,
+{{ cookiecutter.project_name }} could always use more documentation,
+whether as part of the official {{ cookiecutter.project_name }} docs,
 in docstrings, or even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-<https://github.com/>{{ cookiecutter.github\_username }}/{{
-cookiecutter.repo\_name }}/issues.
+<https://github.com/>{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
 
 If you are proposing a feature:
 
@@ -54,10 +52,10 @@ If you are proposing a feature:
 Get Started!
 ------------
 
-Ready to contribute? Here's how to set up {{ cookiecutter.repo\_name }}
+Ready to contribute? Here's how to set up {{ cookiecutter.repo_name }}
 for local development.
 
-1.  Fork the {{ cookiecutter.repo\_name }} repo on GitHub.
+1.  Fork the {{ cookiecutter.repo_name }} repo on GitHub.
 2.  Clone your fork locally:
 
         $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
@@ -101,12 +99,11 @@ Before you submit a pull request, check that it meets these guidelines:
 1.  The pull request should include tests.
 2.  If the pull request adds functionality, the docs should be updated.
     Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.rst.
+    the feature to the list in README.md
 3.  The pull request should work for Python 2.6, 2.7, 3.3, and 3.4, and
-    for PyPy. Check <https://travis-ci.org/>{{
-    cookiecutter.github\_username }}/{{ cookiecutter.repo\_name
-    }}/pull\_requests and make sure that the tests pass for all
-    supported Python versions.
+    for PyPy. Check <https://travis-ci.org/>{{ cookiecutter.github_username }}
+    /{{ cookiecutter.repo_name }}/pull_requests and make sure that the tests pass
+    for all supported Python versions.
 
 Tips
 ----

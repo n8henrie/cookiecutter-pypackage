@@ -47,8 +47,8 @@ coverage:
 	open htmlcov/index.html
 
 docs:
-	rm -f docs/{{ cookiecutter.repo_name }}.rst
-	rm -f docs/modules.rst
+	rm -f docs/{{ cookiecutter.repo_name }}.md
+	rm -f docs/modules.md
 	sphinx-apidoc -o docs/ {{ cookiecutter.repo_name }}
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
