@@ -11,7 +11,7 @@ Types of Contributions
 
 ### Report Bugs
 
-Report bugs at <https://github.com/>{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
+Report bugs at <https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues>.
 
 If you are reporting a bug, please include:
 
@@ -39,7 +39,7 @@ in docstrings, or even on the web in blog posts, articles, and such.
 ### Submit Feedback
 
 The best way to send feedback is to file an issue at
-<https://github.com/>{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues.
+<https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/issues>.
 
 If you are proposing a feature:
 
@@ -100,14 +100,13 @@ Before you submit a pull request, check that it meets these guidelines:
 2.  If the pull request adds functionality, the docs should be updated.
     Put your new functionality into a function with a docstring, and add
     the feature to the list in README.md
-3.  The pull request should work for Python 2.6, 2.7, 3.3, and 3.4, and
-    for PyPy. Check <https://travis-ci.org/>{{ cookiecutter.github_username }}
-    /{{ cookiecutter.repo_name }}/pull_requests and make sure that the tests pass
-    for all supported Python versions.
+3.  The pull request should work for Python 3.3, and 3.4, and
+    for PyPy. Check
+    <https://travis-ci.org/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}/pull_requests>
+    and make sure that the tests pass for all supported Python versions.
 
 Tips
 ----
 
 To run a subset of tests:
-
-    $ python3 -m unittest tests.test_{{ cookiecutter.repo_name }}
+    TODO: Run some tests with pytest
