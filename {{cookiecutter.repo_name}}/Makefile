@@ -35,7 +35,7 @@ lint:
 	flake8 {{ cookiecutter.repo_name }} tests
 
 test:
-	python3 setup.py test
+	py.test tests
 
 test-all:
 	tox
@@ -54,11 +54,11 @@ docs:
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html
 
-release: clean
-	python3 setup.py sdist upload
-	python3 setup.py bdist_wheel upload
+release: dist
+	twine upload dist/*
 
 dist: clean
 	python3 setup.py sdist
 	python3 setup.py bdist_wheel
 	ls -l dist
+
