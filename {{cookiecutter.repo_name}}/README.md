@@ -1,13 +1,10 @@
-{{ cookiecutter.project_name }}
-================================
+# {{ cookiecutter.project_name }}
 
 {{ cookiecutter.project_short_description }}
 
--   Free software: GPLv3
+-   Free software: MIT
 -   Documentation: https://{{ cookiecutter.repo_name }}.readthedocs.org.
 
-Features
---------
+## Features
 
 -   TODO
-

@@ -1,4 +1,8 @@
-.PHONY: clean-pyc clean-build docs clean
+SHELL := /bin/bash
+PYTHON = /usr/bin/env python3
+PWD = $(shell pwd)
+
+.PHONY: clean-pyc clean-build docs clean register release clean-docs
 
 help:
 	@echo "clean - remove all build, test, coverage and Python artifacts"
@@ -46,19 +50,27 @@ coverage:
 	coverage html
 	open htmlcov/index.html
 
-docs:
-	rm -f docs/{{ cookiecutter.repo_name }}.md
-	rm -f docs/modules.md
+clean-docs:
+	rm -f docs/{{ cookiecutter.repo_name }}*.rst
+	rm -f docs/modules.rst
+	rm -rf docs/mdlinks
+
+docs: clean-docs
+	mkdir -p docs/mdlinks
+	ln -s $(PWD)/*.md docs/mdlinks/
 	sphinx-apidoc -o docs/ {{ cookiecutter.repo_name }}
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html
 
+register: dist
+	twine register dist/*.whl
+
 release: dist
 	twine upload dist/*
 
-dist: clean
-	python3 setup.py sdist
-	python3 setup.py bdist_wheel
+dist: clean docs
+	$(PYTHON) setup.py --long-description | rst2html.py
+	$(PYTHON) setup.py sdist
+	$(PYTHON) setup.py bdist_wheel
 	ls -l dist
-

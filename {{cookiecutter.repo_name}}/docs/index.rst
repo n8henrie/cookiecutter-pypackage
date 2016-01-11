@@ -10,10 +10,10 @@ Contents:
 
 .. toctree::
     :glob: 
-    :maxdepth: 2
+    :maxdepth: 1
  
-    {{ cookiecutter.repo_name }}*
-    md/*
+    {{ cookiecutter.repo_name }}
+    mdlinks/*
 
 Indices and tables
 ==================

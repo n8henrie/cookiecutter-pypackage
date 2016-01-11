@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
-
-"""
-test_{{ cookiecutter.repo_name }}
-----------------------------------
+""" test_{{ cookiecutter.repo_name }}.py
 
 Tests for `{{ cookiecutter.repo_name }}` module.
 """
 
+import {{ cookiecutter.repo_name }}

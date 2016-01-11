@@ -1,12 +1,9 @@
-Credits
-=======
+# Credits
 
-Development Lead
-----------------
+## Development Lead
 
--   {{ cookiecutter.full_name }} <{{ cookiecutter.email }}>
+- {{ cookiecutter.full_name }} <{{ cookiecutter.email }}>
 
-Contributors
-------------
+## Contributors
 
-None yet. Why not be the first?
+- None yet. Why not be the first?
