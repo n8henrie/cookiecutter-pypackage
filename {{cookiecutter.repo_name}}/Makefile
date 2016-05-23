@@ -72,3 +72,6 @@ dist: clean docs
 	$(PYTHON) setup.py sdist
 	$(PYTHON) setup.py bdist_wheel
 	ls -l dist
+
+venv:
+	$(PYTHON) -m venv venv
