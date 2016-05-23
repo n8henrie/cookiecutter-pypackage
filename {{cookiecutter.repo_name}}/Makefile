@@ -23,6 +23,7 @@ clean-build:
 	rm -fr build/
 	rm -fr dist/
 	rm -fr *.egg-info
+	rm -fr src/*.egg-info
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -53,12 +54,9 @@ coverage:
 clean-docs:
 	rm -f docs/{{ cookiecutter.repo_name }}*.rst
 	rm -f docs/modules.rst
-	rm -rf docs/mdlinks
 
 docs: clean-docs
-	mkdir -p docs/mdlinks
-	ln -s $(PWD)/*.md docs/mdlinks/
-	sphinx-apidoc -o docs/ {{ cookiecutter.repo_name }}
+	source venv/bin/activate && sphinx-apidoc -o docs/ src/{{ cookiecutter.repo_name }}
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	open docs/_build/html/index.html
@@ -70,7 +68,7 @@ release: dist
 	twine upload dist/*
 
 dist: clean docs
-	$(PYTHON) setup.py --long-description | rst2html.py
+	$(PYTHON) setup.py --long-description | rst2html.py --halt=2
 	$(PYTHON) setup.py sdist
 	$(PYTHON) setup.py bdist_wheel
 	ls -l dist
