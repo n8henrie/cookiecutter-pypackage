@@ -18,12 +18,11 @@ except ImportError:
 with open('requirements.txt') as requirements_file:
     requirements = requirements_file.read().splitlines()
 
-test_requirements = [
-    'pytest>=2.6.4'
-]
+with open('requirements-dev.txt') as dev_requirements_file:
+    dev_requirements = dev_requirements_file.read().splitlines()
 
 version_regex = re.compile(r'__version__ = [\'\"]((\d+\.?)+)[\'\"]')
-with open('{{ cookiecuter.repo_name }}/__init__.py') as f:
+with open('src/{{ cookiecutter.repo_name }}/__init__.py') as f:
     vlines = f.readlines()
 __version__ = next(re.match(version_regex, line).group(1) for line in vlines
                    if re.match(version_regex, line))
@@ -31,16 +30,17 @@ __version__ = next(re.match(version_regex, line).group(1) for line in vlines
 setup(
     name="{{ cookiecutter.repo_name }}",
     version=__version__,
-    "{{ cookiecutter.version }}",
     description="{{ cookiecutter.project_short_description }}",
     long_description=readme + "\n\n" + history,
     author="{{ cookiecutter.full_name }}",
     author_email="{{ cookiecutter.email }}",
     url="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}",
-    packages=find_packages(),
-    package_dir={"{{ cookiecutter.repo_name }}":
-                 "{{ cookiecutter.repo_name }}"},
+    packages=find_packages('src'),
+    package_dir={"": "src"},
     include_package_data=True,
+    # entry_points={
+    #     'console_scripts': ['{{ cookiecutter.repo_name }}={{ cookicutter.repo_name }}.cli:run']
+    #     },
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
@@ -48,10 +48,11 @@ setup(
     classifiers=[
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.3",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5"
     ],
+    extras_require={
+        "dev": dev_requirements
+        },
     test_suite="tests",
-    tests_require=test_requirements
+    tests_require=['pytest>=2.8.7']
 )
