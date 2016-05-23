@@ -1,5 +1,4 @@
-cookiecutter-pypackage
-======================
+## cookiecutter-pypackage
 
 My fork of [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
 
@@ -15,8 +14,7 @@ Cookiecutter template for a Python package. See <https://github.com/audreyr/cook
     generation with, for example,
     [ReadTheDocs](https://readthedocs.org/)
 
-Usage
------
+### Usage
 
 Generate a Python package project:
 
