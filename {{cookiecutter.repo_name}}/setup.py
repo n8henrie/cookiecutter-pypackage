@@ -39,7 +39,7 @@ setup(
     package_dir={"": "src"},
     include_package_data=True,
     # entry_points={
-    #     'console_scripts': ['{{ cookiecutter.repo_name }}={{ cookicutter.repo_name }}.cli:run']
+    #     'console_scripts': ['{{ cookiecutter.repo_name }}={{ cookiecutter.repo_name }}.cli:run']
     #     },
     install_requires=requirements,
     license="MIT",
