@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
 # complexity documentation build configuration file, created by
@@ -15,7 +14,12 @@
 
 import sys
 import os
+import os.path
+import glob
+import shutil
 from recommonmark.parser import CommonMarkParser
+
+on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
 # If extensions (or modules to document with autodoc) are in another
 # directory, add these directories to sys.path here. If the directory is
@@ -25,7 +29,7 @@ from recommonmark.parser import CommonMarkParser
 
 # Get the project root dir, which is the parent dir of this
 cwd = os.getcwd()
-project_root = os.path.dirname(cwd)
+project_root = os.path.join(os.path.dirname(cwd), 'src')
 
 # Insert the project root dir as the first element in the PYTHONPATH.
 # This lets us ensure that the source package is imported, and that its
@@ -112,7 +116,11 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+
+if not on_rtd:  # only import and set the theme if we're building docs locally
+    import sphinx_rtd_theme
+    html_theme = 'sphinx_rtd_theme'
+    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # Theme options are theme-specific and customize the look and feel of a
 # theme further.  For a list of options available for each theme, see the
@@ -277,3 +285,12 @@ texinfo_documents = [
 
 source_parsers = {'.md': CommonMarkParser}
 source_suffix = ['.rst', '.md']
+
+def setup(app):
+    curdir = os.path.dirname(os.path.abspath(__file__))
+    if not os.path.isdir(os.path.join(curdir, 'md')):
+        os.mkdir(os.path.join(curdir, 'md'))
+    for old_mdfile in glob.glob(os.path.join(curdir, 'md/*.md')):
+        os.remove(old_mdfile)
+    for new_mdfile in glob.glob(os.path.join(curdir, '../*.md')):
+        shutil.copy(new_mdfile, 'md/')
