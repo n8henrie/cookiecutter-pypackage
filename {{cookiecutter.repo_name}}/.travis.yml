@@ -1,12 +1,12 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
-
-python:
-  - "3.5"
+python: "3.5"
 env:
   - TOXENV=py35
 
+addons:
+  apt:
+    packages:
+    - pandoc
 install: pip install tox
-
 script: tox
+after_failure: cat .tox/log/tox-*.log
