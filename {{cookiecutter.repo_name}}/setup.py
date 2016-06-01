@@ -1,16 +1,13 @@
 # -*- coding: utf-8 -*-
 
 import re
-try:
-    from setuptools import setup, find_packages
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 try:
     import pypandoc
     readme = pypandoc.convert('README.md', 'rst')
     history = pypandoc.convert('HISTORY.md', 'rst')
-except ImportError:
+except (ImportError, OSError):
     with open('README.md') as readme_file, open('HISTORY.md') as history_file:
         readme = readme_file.read()
         history = history_file.read()
