@@ -50,3 +50,4 @@ config.ini
 config.cfg
 {{ cookicutter.repo_name }}.ini
 {{ cookicutter.repo_name }}.cfg
+.cache/
