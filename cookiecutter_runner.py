@@ -1,10 +1,8 @@
 from cookiecutter.main import cookiecutter
-import json
 import datetime
 import os.path
 
 curdir = os.path.dirname(os.path.abspath(__file__))
-# defaults = json.load('cookiecutter.json')
 
 today = datetime.datetime.today()
 date = today.date().isoformat()
@@ -16,4 +14,3 @@ extra_context = {
         }
 
 cookiecutter(curdir, extra_context=extra_context)
-
