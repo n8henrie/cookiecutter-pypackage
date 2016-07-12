@@ -4,6 +4,8 @@
 	"github_username": "n8henrie",
 	"project_name": "Python Boilerplate",
 	"repo_name": "boilerplate",
-	"project_short_description": "Python Boilerplate contains all the boilerplate you need to create a Python package.",
-	"version": "0.1.0"
+	"project_short_description": "A package that does some stuff",
+	"version": "0.1.0",
+	"year": "",
+	"release_date": ""
 }
