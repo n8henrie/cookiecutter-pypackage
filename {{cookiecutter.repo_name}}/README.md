@@ -32,6 +32,10 @@
 1. Make a virtualenv: `python3 -m venv venv`
 - TODO
 
+## Configuration
+
+- TODO
+
 ## Acknowledgements
 
 - TODO
