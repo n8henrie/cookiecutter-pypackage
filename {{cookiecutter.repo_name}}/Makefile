@@ -75,3 +75,4 @@ dist: clean docs
 
 venv:
 	$(PYTHON) -m venv venv
+	venv/bin/pip install --upgrade pip wheel
