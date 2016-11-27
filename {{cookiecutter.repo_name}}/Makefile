@@ -66,4 +66,21 @@ dist: clean docs
 
 venv:
 	$(PYTHON) -m venv venv
-	venv/bin/pip install --upgrade pip wheel
+	venv/bin/pip install --upgrade pip wheel setuptools
+
+update-reqs: requirements.txt
+	venv/bin/python -c 'print("*" * 80)' >> $<
+	while read lib; do libname="$${lib%%=*}"; venv/bin/pip install --upgrade "$${libname}"; done <$<
+	for lib in $$(venv/bin/pip freeze | grep '=='); do \
+		if grep "$${lib%%=*}" $< >/dev/null; then \
+			echo "$${lib}" >> $<; \
+		fi; \
+	done
+
+update-dev-reqs: requirements-dev.txt
+	venv/bin/python -c 'print("*" * 80)' >> $<
+	while read lib; do libname="$${lib%%=*}"; venv/bin/pip install --upgrade "$${libname}"; done <$<
+	for lib in $$(venv/bin/pip freeze | grep '=='); do \
+		if grep "$${lib%%=*}" $< >/dev/null; then \
+			echo "$${lib}" >> $<; \
+		fi; \
