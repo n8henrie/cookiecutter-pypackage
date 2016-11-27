@@ -7,4 +7,5 @@ recommonmark==0.4.0
 sphinx-rtd-theme==0.1.9
 Sphinx==1.4.9
 twine==1.8.1
+typed-ast==0.6.1
 wheel==0.29.0
