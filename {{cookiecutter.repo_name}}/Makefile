@@ -6,7 +6,7 @@ GREP := $(shell command -v ggrep || command -v grep)
 .PHONY: clean-pyc clean-build docs clean register release clean-docs help
 
 help:
-	@$(GREP) --only-matching '^[^[:space:]]*:$$' Makefile | sed 's|:$$||'
+	@$(GREP) --only-matching --word-regexp '^[^[:space:].]*:' Makefile | sed 's|:[:space:]*||'
 
 clean: clean-build clean-pyc clean-test
 
@@ -69,8 +69,11 @@ venv:
 	venv/bin/pip install --upgrade pip wheel setuptools
 
 update-reqs: requirements.txt
-	venv/bin/python -c 'print("*" * 80)' >> $<
-	while read lib; do libname="$${lib%%=*}"; venv/bin/pip install --upgrade "$${libname}"; done <$<
+	venv/bin/python -c 'print("#" * 80)' >> $<
+	while read lib; do \
+		libname="$${lib%%=*}"; \
+		venv/bin/pip install --upgrade "$${libname}"; \
+	done < <($(GREP) --invert-match '^#' $<)
 	for lib in $$(venv/bin/pip freeze | grep '=='); do \
 		if grep "$${lib%%=*}" $< >/dev/null; then \
 			echo "$${lib}" >> $<; \
@@ -78,9 +81,13 @@ update-reqs: requirements.txt
 	done
 
 update-dev-reqs: requirements-dev.txt
-	venv/bin/python -c 'print("*" * 80)' >> $<
-	while read lib; do libname="$${lib%%=*}"; venv/bin/pip install --upgrade "$${libname}"; done <$<
+	venv/bin/python -c 'print("#" * 80)' >> $<
+	while read lib; do \
+		libname="$${lib%%=*}"; \
+		venv/bin/pip install --upgrade "$${libname}"; \
+	done < <($(GREP) --invert-match '^#' $<)
 	for lib in $$(venv/bin/pip freeze | grep '=='); do \
 		if grep "$${lib%%=*}" $< >/dev/null; then \
 			echo "$${lib}" >> $<; \
 		fi; \
+	done
