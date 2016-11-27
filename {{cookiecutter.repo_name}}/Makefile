@@ -74,7 +74,7 @@ update-reqs: requirements.txt
 		libname="$${lib%%=*}"; \
 		venv/bin/pip install --upgrade "$${libname}"; \
 	done < <($(GREP) --invert-match '^#' $<)
-	for lib in $$(venv/bin/pip freeze | grep '=='); do \
+	for lib in $$(venv/bin/pip freeze --all | grep '=='); do \
 		if grep "$${lib%%=*}" $< >/dev/null; then \
 			echo "$${lib}" >> $<; \
 		fi; \
@@ -86,7 +86,7 @@ update-dev-reqs: requirements-dev.txt
 		libname="$${lib%%=*}"; \
 		venv/bin/pip install --upgrade "$${libname}"; \
 	done < <($(GREP) --invert-match '^#' $<)
-	for lib in $$(venv/bin/pip freeze | grep '=='); do \
+	for lib in $$(venv/bin/pip freeze --all | grep '=='); do \
 		if grep "$${lib%%=*}" $< >/dev/null; then \
 			echo "$${lib}" >> $<; \
 		fi; \
