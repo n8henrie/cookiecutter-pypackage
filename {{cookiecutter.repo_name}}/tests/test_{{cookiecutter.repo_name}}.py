@@ -1,5 +1,4 @@
-# -*- coding: utf-8 -*-
-""" test_{{ cookiecutter.repo_name }}.py
+"""test_{{ cookiecutter.repo_name }}.py
 
 Tests for `{{ cookiecutter.repo_name }}` module.
 """
