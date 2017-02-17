@@ -49,5 +49,5 @@ setup(
         "dev": dev_requirements
         },
     test_suite="tests",
-    tests_require=['pytest>=2.8.7']
+    tests_require=['pytest==2.8.7']
 )
