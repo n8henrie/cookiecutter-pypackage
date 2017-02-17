@@ -1,4 +1,4 @@
-# History
+# [Change Log](http://keepachangelog.com)
 
 ## {{ cookiecutter.version }} :: {{ cookiecutter.release_date }}
 
