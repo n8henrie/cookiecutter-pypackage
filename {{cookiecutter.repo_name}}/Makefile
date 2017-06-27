@@ -14,6 +14,7 @@ clean-build:
 	rm -fr build/
 	rm -fr dist/
 	rm -fr *.egg-info
+	rm -fr src/*.egg-info
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -27,7 +28,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 {{ cookiecutter.repo_name }} tests
+	flake8 src/{{ cookiecutter.repo_name }} tests
 
 test:
 	py.test tests
@@ -46,10 +47,10 @@ clean-docs:
 	rm -f docs/modules.rst
 
 docs: clean-docs
-	source venv/bin/activate && sphinx-apidoc -o docs/ {{ cookiecutter.repo_name }}
+	source venv/bin/activate && sphinx-apidoc -o docs/ src/{{ cookiecutter.repo_name }}
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
-	open docs/_build/html/index.html
+	-open docs/_build/html/index.html
 
 register: dist
 	twine register dist/*.whl

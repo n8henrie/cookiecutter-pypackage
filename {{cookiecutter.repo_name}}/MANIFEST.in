@@ -1,22 +1,8 @@
-include AUTHORS.md
-include CONTRIBUTING.md
-include HISTORY.md
-include LICENSE
-include README.md
-include requirements.txt
-include requirements-dev.txt
+include AUTHORS.md CONTRIBUTING.md HISTORY.md LICENSE README.md requirements*.txt
 
-graft {{ cookiecutter.repo_name }}
+graft src
 recursive-include docs *.md *.rst conf.py Makefile
 
 prune docs/md
 
-global-exclude instance/*
-global-exclude __pycache__/*
-
-global-exclude *.swp
-global-exclude *.py[co]
-global-exclude config.cfg
-global-exclude config.ini
-global-exclude {{ cookiecutter.repo_name }}.cfg
-global-exclude {{ cookiecutter.repo_name }}.ini
+global-exclude instance/* __pycache__/* *.swp *.py[co] config.cfg config.ini {{ cookiecutter.repo_name }}.cfg {{ cookiecutter.repo_name }}.ini
