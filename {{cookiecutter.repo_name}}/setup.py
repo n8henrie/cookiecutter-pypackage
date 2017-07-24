@@ -44,6 +44,7 @@ setup(
     license="MIT",
     zip_safe=False,
     keywords="{{ cookiecutter.repo_name }}",
+    # https://pypi.python.org/pypi?%3Aaction=list_classifiers
     classifiers=[
         "Natural Language :: English",
         "Programming Language :: Python :: 3",
