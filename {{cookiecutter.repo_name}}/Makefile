@@ -3,7 +3,7 @@ PYTHON = /usr/bin/env python3
 PWD = $(shell pwd)
 GREP := $(shell command -v ggrep || command -v grep)
 
-.PHONY: clean-pyc clean-build docs clean register release clean-docs help
+.PHONY: clean-pyc clean-build docs clean release clean-docs help
 
 help:
 	@$(GREP) --only-matching --word-regexp '^[^[:space:].]*:' Makefile | sed 's|:[:space:]*||'
@@ -51,9 +51,6 @@ docs: clean-docs
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 	-open docs/_build/html/index.html
-
-register: dist
-	twine register dist/*.whl
 
 release: dist
 	twine upload dist/*
