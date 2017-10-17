@@ -1,7 +1,7 @@
 # Contributing
 
-Contributions are welcome, and they are greatly appreciated! Every
-little bit helps, and credit will always be given.
+Contributions are welcome, and they are greatly appreciated! Every little bit
+helps, and credit will always be given.
 
 You can contribute in many ways:
 
@@ -13,26 +13,26 @@ Report bugs at <https://github.com/{{ cookiecutter.github_username }}/{{ cookiec
 
 If you are reporting a bug, please include:
 
--   Your operating system name and version.
--   Any details about your local setup that might be helpful in
-    troubleshooting.
--   Detailed steps to reproduce the bug.
+-  Your operating system name and version.
+-  Any details about your local setup that might be helpful in
+   troubleshooting.
+-  Detailed steps to reproduce the bug.
 
 ### Fix Bugs
 
-Look through the GitHub issues for bugs. Anything tagged with "bug" is
-open to whoever wants to implement it.
+Look through the GitHub issues for bugs. Anything tagged with "bug" is open to
+whoever wants to implement it.
 
 ### Implement Features
 
-Look through the GitHub issues for features. Anything tagged with
-"feature" is open to whoever wants to implement it.
+Look through the GitHub issues for features. Anything tagged with "feature" is
+open to whoever wants to implement it.
 
 ### Write Documentation
 
-{{ cookiecutter.project_name }} could always use more documentation,
-whether as part of the official {{ cookiecutter.project_name }} docs,
-in docstrings, or even on the web in blog posts, articles, and such.
+{{ cookiecutter.project_name }} could always use more documentation, whether as
+part of the official {{ cookiecutter.project_name }} docs, in docstrings, or
+even on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
@@ -52,12 +52,12 @@ If you are proposing a feature:
 Ready to contribute? Here's how to set up {{ cookiecutter.repo_name }}
 for local development.
 
-1.  Fork the {{ cookiecutter.repo_name }} repo on GitHub.
-1.  Clone your fork locally:
+1. Fork the {{ cookiecutter.repo_name }} repo on GitHub.
+1. Clone your fork locally:
 
         $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
 
-1.  Install your local copy into a virtualenv. Assuming you have
+1. Install your local copy into a virtualenv. Assuming you have
     python >= 3.4 installed, this is how you set up your fork for
     local development:
 
@@ -66,13 +66,13 @@ for local development.
         $ source venv/bin/activate
         $ pip install -e .
 
-1.  Create a branch for local development:
+1. Create a branch for local development:
 
         $ git checkout -b name-of-your-bugfix-or-feature
 
     Now you can make your changes locally.
 
-1.  When you're done making changes, check that your changes pass flake8
+1. When you're done making changes, check that your changes pass flake8
     and the tests, including testing other Python versions with tox:
 
         $ flake8 {{ cookiecutter.repo_name }} tests
@@ -81,26 +81,28 @@ for local development.
 
     To get flake8 and tox, just pip install them into your virtualenv.
 
-1.  Commit your changes and push your branch to GitHub:
+1. Commit your changes and push your branch to GitHub:
 
         $ git add .
         $ git commit -m "Your detailed description of your changes."
         $ git push origin name-of-your-bugfix-or-feature
 
-1.  Submit a pull request through the GitHub website.
+1. Submit a pull request through the GitHub website.
 
 ## Pull Request Guidelines
 
 Before you submit a pull request, check that it meets these guidelines:
 
-1.  The pull request should include tests if I am using tests in the repo.
-1.  If the pull request adds functionality, the docs should be updated.
-    Put your new functionality into a function with a docstring, and add
-    the feature to the list in README.md
-1.  The pull request should work for Python 3.4 and 3.5. If I have included a
-    `.travis.yml` file in the repo, check
-    <https://travis-ci.org/n8henrie/fauxmo/pull_requests> and make sure that
-    the tests pass for all supported Python versions.
+1. If the change is not *extremely* trivial, please start an issue for
+   discussion **before** you do any work.
+1. The pull request should include tests if I am using tests in the repo.
+1. If the pull request adds functionality, the docs should be updated.
+   Put your new functionality into a function with a docstring, and add
+   the feature to the list in README.md
+1. The pull request should generally work for the most recent version of
+   Python3. If I have included a `.travis.yml` file in the repo, check
+   <https://travis-ci.org/n8henrie/fauxmo/pull_requests> and make sure that
+   the tests pass for all supported Python versions.
 
 ## Tips
 

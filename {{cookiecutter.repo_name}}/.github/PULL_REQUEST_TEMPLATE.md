@@ -1,6 +1,8 @@
 ## Description
 
-A few sentences describing the overall goals of the pull request's commits.
+A few sentences describing the overall goals of the pull request's commits. If
+this is not an **extremely** trivial PR, *please* start an issue for discussion
+(hopefully prior to investing much time and effort).
 
 ## Status
 
