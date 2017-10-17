@@ -67,25 +67,16 @@ venv:
 	venv/bin/pip install --upgrade pip wheel setuptools
 
 update-reqs: requirements.txt
-	venv/bin/python -c 'print("#" * 80)' >> $<
-	while read lib; do \
-		libname="$${lib%%=*}"; \
-		venv/bin/pip install --upgrade "$${libname}"; \
-	done < <($(GREP) --invert-match '^#' $<)
-	for lib in $$(venv/bin/pip freeze --all | grep '=='); do \
-		if grep "$${lib%%=*}" $< >/dev/null; then \
-			echo "$${lib}" >> $<; \
-		fi; \
-	done
+	@$(GREP) --invert-match --no-filename '^#' requirements*.txt | \
+		$(SED) 's|==.*$$||g' | \
+		xargs venv/bin/python -m pip install --upgrade; exit; \
+	for reqfile in requirements*.txt; do \
+		echo "Updating $${reqfile}..."; \
+		venv/bin/python -c 'print("\n{:#^80}".format("  Updated reqs below  "))' >> "$${reqfile}"; \
+		for lib in $$(venv/bin/pip freeze --all --isolated --quiet | $(GREP) '=='); do \
+			if $(GREP) "$${lib%%=*}" "$${reqfile}" >/dev/null; then \
+				echo "$${lib}" >> "$${reqfile}"; \
+			fi; \
+		done; \
+	done;
 
-update-dev-reqs: requirements-dev.txt
-	venv/bin/python -c 'print("#" * 80)' >> $<
-	while read lib; do \
-		libname="$${lib%%=*}"; \
-		venv/bin/pip install --upgrade "$${libname}"; \
-	done < <($(GREP) --invert-match '^#' $<)
-	for lib in $$(venv/bin/pip freeze --all | grep '=='); do \
-		if grep "$${lib%%=*}" $< >/dev/null; then \
-			echo "$${lib}" >> $<; \
-		fi; \
-	done
