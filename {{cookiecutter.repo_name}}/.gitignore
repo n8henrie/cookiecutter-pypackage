@@ -51,3 +51,4 @@ config.cfg
 {{ cookiecutter.repo_name }}.ini
 {{ cookiecutter.repo_name }}.cfg
 .cache/
+.mypy_cache/
