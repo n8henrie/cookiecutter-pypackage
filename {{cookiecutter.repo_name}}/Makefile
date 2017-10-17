@@ -74,7 +74,7 @@ update-reqs: requirements.txt
 		echo "Updating $${reqfile}..."; \
 		venv/bin/python -c 'print("\n{:#^80}".format("  Updated reqs below  "))' >> "$${reqfile}"; \
 		for lib in $$(venv/bin/pip freeze --all --isolated --quiet | $(GREP) '=='); do \
-			if $(GREP) "$${lib%%=*}" "$${reqfile}" >/dev/null; then \
+			if $(GREP) "^$${lib%%=*}==" "$${reqfile}" >/dev/null; then \
 				echo "$${lib}" >> "$${reqfile}"; \
 			fi; \
 		done; \
