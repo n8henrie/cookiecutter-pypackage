@@ -80,3 +80,8 @@ update-reqs: requirements.txt
 		done; \
 	done;
 
+github:
+	hub create
+
+travis:
+	[ -f .travis.yml ] && travis enable || travis init
