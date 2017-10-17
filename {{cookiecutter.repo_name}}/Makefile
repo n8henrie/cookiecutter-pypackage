@@ -69,7 +69,7 @@ venv:
 update-reqs: requirements.txt
 	@$(GREP) --invert-match --no-filename '^#' requirements*.txt | \
 		$(SED) 's|==.*$$||g' | \
-		xargs venv/bin/python -m pip install --upgrade; exit; \
+		xargs venv/bin/python -m pip install --upgrade; \
 	for reqfile in requirements*.txt; do \
 		echo "Updating $${reqfile}..."; \
 		venv/bin/python -c 'print("\n{:#^80}".format("  Updated reqs below  "))' >> "$${reqfile}"; \
