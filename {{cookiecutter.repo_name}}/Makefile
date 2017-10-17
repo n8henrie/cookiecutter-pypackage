@@ -2,11 +2,12 @@ SHELL := /bin/bash
 PYTHON = /usr/bin/env python3
 PWD = $(shell pwd)
 GREP := $(shell command -v ggrep || command -v grep)
+SED := $(shell command -v gsed || command -v sed)
 
 .PHONY: clean-pyc clean-build docs clean release clean-docs help
 
 help:
-	@$(GREP) --only-matching --word-regexp '^[^[:space:].]*:' Makefile | sed 's|:[:space:]*||'
+	@$(GREP) --only-matching --word-regexp '^[^[:space:].]*:' Makefile | $(SED) 's|:[:space:]*||'
 
 clean: clean-build clean-pyc clean-test
 
