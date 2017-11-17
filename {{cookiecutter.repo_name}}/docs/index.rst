@@ -12,7 +12,9 @@ Contents:
     :glob: 
     :maxdepth: 1
  
-    {{ cookiecutter.repo_name }}
+    Readme <md/README>
+    Modules overview <modules>
+    *
     md/*
 
 Indices and tables

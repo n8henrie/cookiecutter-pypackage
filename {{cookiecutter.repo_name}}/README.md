@@ -6,7 +6,7 @@ master: [![master branch build status](https://travis-ci.org/n8henrie/{{ cookiec
 {{ cookiecutter.project_short_description }}
 
 - Free software: MIT
-- Documentation: https://{{ cookiecutter.repo_name }}.readthedocs.org
+- Documentation: https://{{ cookiecutter.repo_name }}.readthedocs.io
 
 ## Features
 
