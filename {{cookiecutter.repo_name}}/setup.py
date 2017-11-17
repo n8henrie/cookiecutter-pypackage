@@ -1,12 +1,13 @@
 import re
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 try:
     import pypandoc
     readme = pypandoc.convert('README.md', 'rst')
     history = pypandoc.convert('CHANGELOG.md', 'rst')
 except (ImportError, OSError):
-    with open('README.md') as readme_file, open('CHANGELOG.md') as history_file:
+    with open('README.md') as readme_file, \
+            open('CHANGELOG.md') as history_file:
         readme = readme_file.read()
         history = history_file.read()
 
