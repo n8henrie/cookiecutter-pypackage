@@ -1,6 +1,7 @@
 # {{ cookiecutter.project_name }}
 
-[![Build Status](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }}.svg?branch=master)](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }})
+master: [![master branch build status](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }}.svg?branch=master)](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }}/branches)
+<!-- dev: [![dev branch build status](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }}.svg?branch=dev)](https://travis-ci.org/n8henrie/{{ cookiecutter.repo_name }}/branches) -->
 
 {{ cookiecutter.project_short_description }}
 
