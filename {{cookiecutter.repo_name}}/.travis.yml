@@ -13,3 +13,14 @@ script:
   - tox -e docs
 
 after_failure: cat .tox/log/tox-*.log
+
+deploy:
+  provider: pypi
+  user: n8henrie
+  password:
+    # travis encrypt --add deploy.password
+    secure: "Your encrypted password"
+  distributions: "sdist bdist_wheel"
+  on:
+    branch: master
+    tags: true
