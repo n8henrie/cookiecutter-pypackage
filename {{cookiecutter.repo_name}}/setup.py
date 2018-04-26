@@ -1,15 +1,9 @@
 import re
 from setuptools import find_packages, setup
 
-try:
-    import pypandoc
-    readme = pypandoc.convert('README.md', 'rst')
-    history = pypandoc.convert('CHANGELOG.md', 'rst')
-except (ImportError, OSError):
-    with open('README.md') as readme_file, \
-            open('CHANGELOG.md') as history_file:
-        readme = readme_file.read()
-        history = history_file.read()
+with open('README.md') as readme_file, open('CHANGELOG.md') as history_file:
+    readme = readme_file.read()
+    history = history_file.read()
 
 with open('requirements.txt') as requirements_file:
     requirements = requirements_file.read().splitlines()
@@ -32,6 +26,7 @@ setup(
     version=__version__,
     description="{{ cookiecutter.project_short_description }}",
     long_description=readme + "\n\n" + history,
+    long_description_content_type='text/markdown',
     author="{{ cookiecutter.full_name }}",
     author_email="{{ cookiecutter.email }}",
     url="https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.repo_name }}",
