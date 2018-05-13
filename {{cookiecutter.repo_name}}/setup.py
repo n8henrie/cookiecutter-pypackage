@@ -7,10 +7,16 @@ with open('README.md', encoding='utf-8') as readme_file,\
     history = history_file.read()
 
 with open('requirements.txt') as requirements_file:
-    requirements = requirements_file.read().splitlines()
+    requirements = [
+            line for line in requirements_file.read().splitlines()
+            if not line.startswith('-i ')
+            ]
 
 with open('requirements-dev.txt') as dev_requirements_file:
-    dev_requirements = dev_requirements_file.read().splitlines()
+    dev_requirements = [
+            line for line in dev_requirements_file.read().splitlines()
+            if not line.startswith('-i ')
+            ]
 
 with open('requirements-test.txt') as test_requirements_file:
     test_requirements = test_requirements_file.read().splitlines()
