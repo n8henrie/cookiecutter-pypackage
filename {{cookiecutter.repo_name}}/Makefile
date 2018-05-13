@@ -48,9 +48,9 @@ clean-docs:
 	rm -f docs/modules.rst
 
 docs: clean-docs
-	source venv/bin/activate && sphinx-apidoc -o docs/ src/{{ cookiecutter.repo_name }}
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
+	source ./.venv/bin/activate && sphinx-apidoc -o docs/ src/{{ cookiecutter.repo_name }}
+	source ./.venv/bin/activate && $(MAKE) -C docs clean
+	source ./.venv/bin/activate && $(MAKE) -C docs html
 	-open docs/_build/html/index.html
 
 release: dist
@@ -63,17 +63,17 @@ dist: clean docs
 	ls -l dist
 
 venv:
-	$(PYTHON) -m venv venv
-	venv/bin/pip install --upgrade pip wheel setuptools
+	$(PYTHON) -m venv .venv
+	./.venv/bin/pip install --upgrade pip wheel setuptools
 
 update-reqs: requirements.txt
 	@$(GREP) --invert-match --no-filename '^#' requirements*.txt | \
 		$(SED) 's|==.*$$||g' | \
-		xargs venv/bin/python -m pip install --upgrade; \
+		xargs ./.venv/bin/python -m pip install --upgrade; \
 	for reqfile in requirements*.txt; do \
 		echo "Updating $${reqfile}..."; \
-		venv/bin/python -c 'print("\n{:#^80}".format("  Updated reqs below  "))' >> "$${reqfile}"; \
-		for lib in $$(venv/bin/pip freeze --all --isolated --quiet | $(GREP) '=='); do \
+		./.venv/bin/python -c 'print("\n{:#^80}".format("  Updated reqs below  "))' >> "$${reqfile}"; \
+		for lib in $$(./.venv/bin/pip freeze --all --isolated --quiet | $(GREP) '=='); do \
 			if $(GREP) "^$${lib%%=*}==" "$${reqfile}" >/dev/null; then \
 				echo "$${lib}" >> "$${reqfile}"; \
 			fi; \
