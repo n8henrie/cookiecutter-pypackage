@@ -24,7 +24,7 @@ E.g.:
 ```bash
 git checkout -b <feature_branch> master
 git pull https://github.com/<user>/{{ cookiecutter.repo_name }}.git <feature_branch>
-py.test tests/
+pytest tests/
 ```
 
 ## Other notes

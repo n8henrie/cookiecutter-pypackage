@@ -32,7 +32,7 @@ lint:
 	flake8 src/{{ cookiecutter.repo_name }} tests
 
 test:
-	py.test tests
+	pytest tests
 
 test-all:
 	tox
