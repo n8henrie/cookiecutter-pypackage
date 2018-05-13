@@ -1,7 +1,8 @@
 import re
 from setuptools import find_packages, setup
 
-with open('README.md') as readme_file, open('CHANGELOG.md') as history_file:
+with open('README.md', encoding='utf-8') as readme_file,\
+        open('CHANGELOG.md', encoding='utf-8') as history_file:
     readme = readme_file.read()
     history = history_file.read()
 
