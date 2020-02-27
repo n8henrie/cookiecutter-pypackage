@@ -56,15 +56,25 @@ for local development.
 1. Clone your fork locally:
 
         $ git clone git@github.com:your_name_here/{{ cookiecutter.repo_name }}.git
+        $ cd {{ cookiecutter.repo_name }}
 
-1. Install your local copy into a virtualenv. Assuming you have
-    python >= 3.4 installed, this is how you set up your fork for
+1. Check out the `dev` branch, where development happens prior to being merged
+   into `master`. Your changes should be based on the `dev` branch, and your PR
+   should eventually be requested against my `dev` branch.
+
+        $ git checkout dev
+
+1.  Install your local copy into a virtualenv (`venv` in modern python). Some
+    linux distributions will require you to install `python-venv` or
+    `python3-venv`, other times it will already be bundled with python. There
+    are many ways to skin a cat, but this is how I usually set up a fork for
     local development:
 
-        $ cd {{ cookiecutter.repo_name }}
-        $ python3 -m venv venv
-        $ source venv/bin/activate
-        $ pip install -e .
+        $ python3 -m venv .venv # set up hidden virtualenv folder: .venv
+        $ source ./.venv/bin/actiate # activate virtualenv
+        $ which python
+        /Users/me/{{ cookiecutter.repo_name }}/.venv/bin/python
+        $ python -m pip install -e .[dev] # editable install with dev deps
 
 1. Create a branch for local development:
 
@@ -72,11 +82,9 @@ for local development.
 
     Now you can make your changes locally.
 
-1. When you're done making changes, check that your changes pass flake8
-    and the tests, including testing other Python versions with tox:
+1. When you're done making changes, check that your changes pass any existing
+   tests, including testing other Python versions with tox:
 
-        $ flake8 {{ cookiecutter.repo_name }} tests
-        $ python3 setup.py test
         $ tox
 
     To get flake8 and tox, just pip install them into your virtualenv.
@@ -87,7 +95,7 @@ for local development.
         $ git commit -m "Your detailed description of your changes."
         $ git push origin name-of-your-bugfix-or-feature
 
-1. Submit a pull request through the GitHub website.
+1. Submit a pull request through the GitHub website against my `dev` branch.
 
 ## Pull Request Guidelines
 
